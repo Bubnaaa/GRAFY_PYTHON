@@ -56,30 +56,26 @@ class Graf:
 
         return len(done) == len(all_points)
 
+    def is_planar():
+        pass
+
+    def get_chromatic_number():
+        pass
+
+    def analyze(self):
+        print("---- ANALÝZA GRAFU ----")
+        print(f"Počet vrcholů: {self.counter}")
+        print(f"Orientovaný: {self.is_directed()}")
+        print(f"Ohodnocený: {self.has_weights()}")
+        print(f"Obsahuje smyčky: {self.has_loop()}")
+        print(f"Souvislý: {self.is_connected()}")
+        print(f"Planární: {self.is_planar()}")
+        print(f"Chromatické číslo: {self.get_chromatic_number()}")
+        print("-----------------------")
+
 g1 = Graf(directed=True)
 g1.add_connection("A", "B")
 g1.add_connection("B", "C")
 
-print("\n ----PŘEHLED GRAFU 1----")
-print("Smyčka:", g1.has_loop())
-print("Ohodnocení:", g1.has_weights())
-print("Orientace:", g1.is_directed())
-print("Souvislost", g1.is_connected())
-print("Počet vrcholů:", g1.counter)
-print("\n------------------")
-print("Vizualizace:", g1.connection)
+g1.analyze()
 
-
-
-g2 = Graf(directed=False)
-g2.add_connection("A", "B", 10)
-g2.add_point("C")
-
-print("\n ----PŘEHLED GRAFU 2----")
-print("Smyčka:", g2.has_loop())
-print("Ohodnocení:", g2.has_weights())
-print("Orientace:", g2.is_directed())
-print("Souvislost", g2.is_connected())
-print("Počet vrcholů:", g2.counter)
-print("\n------------------")
-print("Vizualizace:", g2.connection)
