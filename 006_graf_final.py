@@ -2,10 +2,14 @@ class Graf:
     def __init__(self, directed = False):
         self.connection = {}
         self.directed = directed
+        self.counter = 0
 
     def add_point(self, point):
         if point not in self.connection:
             self.connection[point] = []
+            self.counter += 1
+            return
+
 
     def add_connection(self, A, B, weight = None):
         self.add_point(A)
@@ -61,8 +65,10 @@ print("Smyčka:", g1.has_loop())
 print("Ohodnocení:", g1.has_weights())
 print("Orientace:", g1.is_directed())
 print("Souvislost", g1.is_connected())
+print("Počet vrcholů:", g1.counter)
 print("\n------------------")
 print("Vizualizace:", g1.connection)
+
 
 
 g2 = Graf(directed=False)
@@ -74,5 +80,6 @@ print("Smyčka:", g2.has_loop())
 print("Ohodnocení:", g2.has_weights())
 print("Orientace:", g2.is_directed())
 print("Souvislost", g2.is_connected())
+print("Počet vrcholů:", g2.counter)
 print("\n------------------")
 print("Vizualizace:", g2.connection)
