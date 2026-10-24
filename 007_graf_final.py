@@ -56,11 +56,20 @@ class Graf:
 
         return len(done) == len(all_points)
 
-    def is_planar():
-        pass
+    def is_planar(self):
+        vrcholy = self.counter
+        if vrcholy <= 3:
+            return True
 
-    def get_chromatic_number():
-        pass
+        hrany = 0
+        for point, targets in self.connection.items():
+            hrany += len(targets)
+        if not self.directed:
+            hrany = hrany // 2
+        if hrany > 3 * vrcholy - 6:
+            return False
+        
+        return True
 
     def analyze(self):
         print("---- ANALÝZA GRAFU ----")
@@ -70,7 +79,6 @@ class Graf:
         print(f"Obsahuje smyčky: {self.has_loop()}")
         print(f"Souvislý: {self.is_connected()}")
         print(f"Planární: {self.is_planar()}")
-        print(f"Chromatické číslo: {self.get_chromatic_number()}")
         print("-----------------------")
 
 g1 = Graf(directed=True)
@@ -78,4 +86,3 @@ g1.add_connection("A", "B")
 g1.add_connection("B", "C")
 
 g1.analyze()
-
