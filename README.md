@@ -6,7 +6,8 @@
 - Zda je graf orientovaný
 - Souvislost grafu
 - Planaritu grafu
+- Všechny tyto informace na konci vypíše metoda **analyse()**
 
-- Všechny tyto informace na konci vypíše metoda analyse()
-
+### Technologie
+Vše bylo napsáno v python OOP
 
