@@ -52,28 +52,17 @@ class Graf:
 
         return len(done) == len(all_points)
 
-g1 = Graf()
-g_both_ways = Graf(directed=False)
+    def analyze(self):
+        print("---- ANALÝZA GRAFU ----")
+        print(f"Počet vrcholů: {self.counter}")
+        print(f"Orientovaný: {self.is_directed()}")
+        print(f"Ohodnocený: {self.has_weights()}")
+        print(f"Obsahuje smyčky: {self.has_loop()}")
+        print(f"Souvislý: {self.is_connected()}")
+        print("-----------------------")
 
-g_both_ways.add_connection("A", "B", 10)
-g1.add_connection("A", "B", 10)
-g1.add_connection("A", "C", 5)
+g1 = Graf(directed=True)
+g1.add_connection("A", "B")
+g1.add_connection("B", "C")
 
-print(g1.connection)
-print("Loop:", g1.has_loop())
-print("Weights:", g1.has_weights())
-print("Direction:", g_both_ways.connection)
-print("Connected:", g1.is_connected())
-
-g2 = Graf()
-g_one_way = Graf(directed=True)
-
-g_one_way.add_connection("A", "B")
-g2.add_connection("A", "B")
-g2.add_point("C")
-
-print(g2.connection)
-print("Loop:", g2.has_loop())
-print("Weights:", g2.has_weights())
-print("Direction:", g_one_way.connection)
-print("Connected:", g2.is_connected())
+g1.analyze()
